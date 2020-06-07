@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chainable Transition Effects</title>
+
+    <style type="text/css">
+        body {
+            margin: 20px auto;
+            padding: 0;
+            width: 75vw;
+        }
+
+        #box {
+            background-color: #00570b;
+            height: 100px;
+            width: 100px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p><a id="run">Run</a></p>
+    <div id="box"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+        </script>
+    <script>
+        $(function () {
+            $('#run').click(function () {
+                $('#box').animate({ opacity: '0.1', left: '+=400px' }, 1200)
+                    .animate({ opacity: '0.4', top: '+=200px', height: '20px', width: '20px' }, 'slow')
+                    .animate({ opacity: '1', left: '0', height: '80px', width: '80px' }, 'slow')
+                    .animate({ top: '0', height: '100px', width: '100px' }, 'fast')
+                    .slideUp()
+                    .slideDown("slow");
+            });
+        })
+    </script>
+
+</body>
+
+</html>
